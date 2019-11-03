@@ -11,3 +11,7 @@ Please create a local virtual environment and install the packages inside the `r
 * Local environment activation
 	* `source ~/python_environments/python230_djangoenv/bin/activate`
 
+
+
+### Django version
+Due to a sqlite3 error I upgraded to Django 2.2.6 which resolved the `no such table: main.auth_user__old` error. This error may be caused by a sqlite 3 version problem and not Django. This project _should_ run in Django 2.1.1
