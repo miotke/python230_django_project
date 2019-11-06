@@ -22,6 +22,10 @@ class PostTestCase(TestCase):
 
 class CategoryTestCase(TestCase):
 
+    class Meta:
+        verbose_name_plural = 'Categories'
+
+
     def test_string_representation(self):
         expected = 'A Category'
         c1 = Category(name=expected)
