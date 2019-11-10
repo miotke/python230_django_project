@@ -3,4 +3,8 @@ from blogging.models import Post, Category
 
 
 admin.site.register(Post)
-admin.site.register(Category)
+
+
+
+class PostCategory(admin.ModelAdmin):
+    admin.site.register(Category)
