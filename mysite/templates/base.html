@@ -7,13 +7,9 @@
   </head>
   <body>
       <div id="header">
-        {% if user.is_authenticated %}
-          <p>Logged in as {{ user.username }}</p>
-          <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
-        {% else %}
-        {% endif %}
           <ul id="control-bar">
           {% if user.is_authenticated %}
+          <li>Logged in as {{ user.username }}</li> |
            {% if user.is_staff %}<li><a href="{% url 'admin:index' %}">admin</a></li>{% endif %}
             <li><a href="{% url 'logout' %}">logout</a></li>
            {% else %}
