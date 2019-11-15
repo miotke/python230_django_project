@@ -19,7 +19,7 @@ def stub_view(request, *args, **kwargs):
 def list_view(request):
     published = Post.objects.exclude(published_date__exact=None)
     posts = published.order_by('-published_date')
-    context = {'posts': posts}
+    context = {'posts': posts if request.user.is_authenticated else []}
 
     return render(request, 'blogging/list.html', context)
 
