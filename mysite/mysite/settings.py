@@ -22,6 +22,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '&o*#a0tx@wyel0=fl+pwn17kz07u03hjt8e#23qkgw&f()86=y'
 
+# Google Auth
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ['PYTHON230_KEY']
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ['PYTHON230_SECRET']
+
+LOGIN_URL = '/auth/login/google-oauth2'
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -41,6 +52,7 @@ INSTALLED_APPS = [
     # Custom apps
     'polling',
     'blogging',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +82,13 @@ TEMPLATES = [
         },
     },
 ]
+
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
