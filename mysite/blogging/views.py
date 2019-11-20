@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django import forms
+from django.utils import timezone
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpRequest, Http404
 from django.template import loader
 from blogging.models import Post
+from blogging.forms import CommentForm
 
 
 def stub_view(request, *args, **kwargs):
@@ -35,3 +38,19 @@ def detail_view(request, post_id):
     context = {'post': post}
 
     return render(request, 'blogging/detail.html', context)
+
+
+def add_comment(request):
+
+    if request.method =='POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            model_instance = form.save(commit=False)
+            model_instance.timestamp = timezone.now()
+            model_instance.save()
+
+            return redirect('/')
+    else:
+        form = CommentForm()
+
+        return render(request, 'blogging/list.html')
