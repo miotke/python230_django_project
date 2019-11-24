@@ -3,6 +3,8 @@
 Repo for the Django project that we are building in the Python230, Python Programming certificate class at the Univeristy of Washington.
 The project we're building is a blog application.
 
+Deployed at: http://python230-ubuntu7013.westus.cloudapp.azure.com
+
 ### Virtual environment
 The virtual environment for this project is stored on my local Mac and is not included in this repo.
 
