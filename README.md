@@ -28,3 +28,4 @@ Due to a sqlite3 error I upgraded to Django 2.2.6 which resolved the `no such ta
 * Logout routing back to `/`
 * Lists all posts at `/`
 * See post details when you click on a post
+* Deployed on an Azure Ubuntu VPS
